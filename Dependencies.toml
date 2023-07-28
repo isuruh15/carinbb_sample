@@ -332,8 +332,21 @@ dependencies = [
 ]
 
 [[package]]
-org = "ballerinax"
-name = "healthcare.fhir.carinbb"
+org = "isuruuy"
+name = "carinbb_test"
+version = "0.1.0"
+dependencies = [
+	{org = "ballerina", name = "http"},
+	{org = "ballerinai", name = "observe"},
+	{org = "wso2people", name = "fhircarinbb"}
+]
+modules = [
+	{org = "isuruuy", packageName = "carinbb_test", moduleName = "carinbb_test"}
+]
+
+[[package]]
+org = "wso2people"
+name = "fhircarinbb"
 version = "0.0.1"
 dependencies = [
 	{org = "ballerina", name = "constraint"},
@@ -341,19 +354,6 @@ dependencies = [
 	{org = "ballerinax", name = "health.fhir.r4"}
 ]
 modules = [
-	{org = "ballerinax", packageName = "healthcare.fhir.carinbb", moduleName = "healthcare.fhir.carinbb"}
-]
-
-[[package]]
-org = "isuruuy"
-name = "carinbb_test"
-version = "0.1.0"
-dependencies = [
-	{org = "ballerina", name = "http"},
-	{org = "ballerinai", name = "observe"},
-	{org = "ballerinax", name = "healthcare.fhir.carinbb"}
-]
-modules = [
-	{org = "isuruuy", packageName = "carinbb_test", moduleName = "carinbb_test"}
+	{org = "wso2people", packageName = "fhircarinbb", moduleName = "fhircarinbb"}
 ]
 

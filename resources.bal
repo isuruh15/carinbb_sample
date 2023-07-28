@@ -1,4 +1,4 @@
-import ballerinax/healthcare.fhir.carinbb;
+import wso2people/fhircarinbb;
 
 public type Patient record {
     string id?;
@@ -8,7 +8,7 @@ public type Patient record {
 
 
 
-isolated function transform(Patient patient) returns carinbb:C4BBPatient => {
+isolated function transform(Patient patient) returns fhircarinbb:C4BBPatient => {
     id: patient.id,
     identifier: [
         {

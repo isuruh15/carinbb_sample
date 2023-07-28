@@ -1,0 +1,14 @@
+[package]
+org = "isuruuy"
+name = "carinbb_test"
+version = "0.1.0"
+distribution = "2201.7.0"
+
+[build-options]
+observabilityIncluded = true
+
+[[dependency]]
+org = "ballerinax"
+name = "healthcare.fhir.carinbb"
+version = "0.0.1"
+repository = "local"

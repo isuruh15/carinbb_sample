@@ -1,6 +1,6 @@
 [package]
-org = "isuruuy"
-name = "carinbb_test"
+org = "samples"
+name = "carinbb_sample"
 version = "0.1.0"
 distribution = "2201.7.0"
 
@@ -8,10 +8,15 @@ distribution = "2201.7.0"
 observabilityIncluded = true
 
 [[dependency]]
-org = "ballerinax"
-name = "healthcare.fhir.carinconsumerdirectedpayerdataexchange"
-version = "0.0.1"
+org = "samples"
+name = "sample.carinbb"
+version = "1.0.0"
 repository = "local"
+
+[[dependency]]
+org = "ballerinax"
+name = "healthcare.fhir.r4"
+version = "4.0.0"
 
 # [[dependency]]
 # org = "testabcd"

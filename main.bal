@@ -1,28 +1,49 @@
 import ballerina/http;
+import ballerinax/health.fhir.r4;
+import samples/sample.carinbb as carinbb;
 
-listener http:Listener httpListener = new (9595);
+listener http:Listener httpListener = new (9090);
 
-type IdNotFound record {|
-    *http:NotFound;
-    record {
-        string message;
-    } body;
-|};
-
+public type Patient record {
+    string id;
+    string lastName?;
+    string firstName;
+    string middleName;
+    string gender?;
+};
 
 service / on httpListener {
 
-    isolated resource function get [string fhirType]/[string id]() returns json|error {
-        http:Client clientEndpoint = check new("https://run.mocky.io/v3");
+    isolated resource function get [string fhirType]/[string id]() returns @http:Payload {mediaType: ["application/fhir+json", "application/fhir+xml"]}r4:FHIRWireFormat|error {
 
-    // Send the GET request
-    http:Response httpResponse = check clientEndpoint->get("/bb0fd117-9430-4062-a588-fb88d71f97c3");
+        // Mock Patient payload from legacy healthcare system
+        Patient patient = {
+            id: "2121",
+            lastName: "Doe",
+            firstName: "John",
+            middleName: "Hemish",
+            gender: "male"
+        };
 
-    // Get the response as a string
-    json responseStr = check httpResponse.getJsonPayload();
-    Patient patient = check responseStr.cloneWithType();
+        // Convert to Carin BB Patient structure.
+        carinbb:C4BBPatient c4bbPatient = {
+            id: patient.id,
+            identifier: [
+                {
+                    system: "http://hl7.org/fhir/sid/us-ssn",
+                    value: patient.id
+                }
+            ]
+    ,
+            gender: <carinbb:PatientGender>patient.gender,
+            name: [
+                {
+                    family: patient.lastName,
+                    given: [patient.firstName, patient.middleName]
+                }
+            ]
+        };
 
-    return patient is Patient ? (transform(patient)).toJson() : error http:ResourceNotFoundError("Patient not found");
+        return c4bbPatient.toJson();
+    }
 }
-}
-

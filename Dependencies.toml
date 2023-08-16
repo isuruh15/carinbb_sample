@@ -61,7 +61,7 @@ dependencies = [
 [[package]]
 org = "ballerina"
 name = "http"
-version = "2.9.0"
+version = "2.9.2"
 dependencies = [
 	{org = "ballerina", name = "auth"},
 	{org = "ballerina", name = "cache"},
@@ -195,7 +195,7 @@ dependencies = [
 [[package]]
 org = "ballerina"
 name = "log"
-version = "2.8.0"
+version = "2.8.1"
 dependencies = [
 	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "jballerina.java"},
@@ -317,7 +317,7 @@ dependencies = [
 [[package]]
 org = "ballerinax"
 name = "health.fhir.r4"
-version = "4.0.0"
+version = "4.1.0"
 dependencies = [
 	{org = "ballerina", name = "constraint"},
 	{org = "ballerina", name = "http"},
@@ -332,21 +332,8 @@ dependencies = [
 ]
 
 [[package]]
-org = "isuruuy"
-name = "carinbb_test"
-version = "0.1.0"
-dependencies = [
-	{org = "ballerina", name = "http"},
-	{org = "ballerinai", name = "observe"},
-	{org = "wso2people", name = "fhircarinbb"}
-]
-modules = [
-	{org = "isuruuy", packageName = "carinbb_test", moduleName = "carinbb_test"}
-]
-
-[[package]]
-org = "wso2people"
-name = "fhircarinbb"
+org = "ballerinax"
+name = "healthcare.fhir.carinconsumerdirectedpayerdataexchange"
 version = "0.0.1"
 dependencies = [
 	{org = "ballerina", name = "constraint"},
@@ -354,6 +341,19 @@ dependencies = [
 	{org = "ballerinax", name = "health.fhir.r4"}
 ]
 modules = [
-	{org = "wso2people", packageName = "fhircarinbb", moduleName = "fhircarinbb"}
+	{org = "ballerinax", packageName = "healthcare.fhir.carinconsumerdirectedpayerdataexchange", moduleName = "healthcare.fhir.carinconsumerdirectedpayerdataexchange"}
+]
+
+[[package]]
+org = "isuruuy"
+name = "carinbb_test"
+version = "0.1.0"
+dependencies = [
+	{org = "ballerina", name = "http"},
+	{org = "ballerinai", name = "observe"},
+	{org = "ballerinax", name = "healthcare.fhir.carinconsumerdirectedpayerdataexchange"}
+]
+modules = [
+	{org = "isuruuy", packageName = "carinbb_test", moduleName = "carinbb_test"}
 ]
 

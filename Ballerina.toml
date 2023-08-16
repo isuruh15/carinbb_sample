@@ -8,7 +8,19 @@ distribution = "2201.7.0"
 observabilityIncluded = true
 
 [[dependency]]
-org = "wso2people"
-name = "fhircarinbb"
+org = "ballerinax"
+name = "healthcare.fhir.carinconsumerdirectedpayerdataexchange"
 version = "0.0.1"
 repository = "local"
+
+# [[dependency]]
+# org = "testabcd"
+# name = "healthcare.fhir.aubase"
+# version = "0.0.1"
+# repository = "local"
+
+# [[dependency]]
+# org = "ballerinax"
+# name = "healthcare.fhir.davincipayerdataexchange"
+# version = "0.0.1"
+# repository = "local"
